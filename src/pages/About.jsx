@@ -7,13 +7,15 @@ import Footer from '../components/Footer'
 function App() {
   return (
     <>
-      <Navbar/>
-      <Slideshow />
-      <Accommodation />
-      <GoogleMapEmbed />
-      <Footer />
+      <Navbar />
+      <div className="pt-16"> {/* Push content below fixed navbar */}
+        <Slideshow />
+        <Accommodation />
+        <GoogleMapEmbed />
+        <Footer />
+      </div>
     </>
-  )
+  );
 }
 
 export default App
