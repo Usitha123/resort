@@ -14,19 +14,20 @@ const Footer = () => {
     <footer className="bg-[#1d231c] text-white py-10 px-6 md:px-20">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-8">
         {/* QUICK LINKS */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">QUICK LINKS</h3>
-          <ul className="space-y-2 text-sm text-gray-300">
-            <li>Home</li>
-            <li className="text-yellow-500">Contact</li>
-            <li>Reviews</li>
-            <li>Privacy Policy</li>
-            <li>Accommodation</li>
-            <li>Location</li>
-            <li>Terms & Conditions</li>
-            <li>Sitemap</li>
-          </ul>
-        </div>
+    <div>
+       <h3 className="text-lg font-semibold mb-4">QUICK LINKS</h3>
+      <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-300">
+        <li>Home</li>
+        <li>Contact</li>
+        <li>Reviews</li>
+        <li>Privacy Policy</li>
+        <li>Accommodation</li>
+        <li>Location</li>
+        <li>Terms & Conditions</li>
+        <li>Sitemap</li>
+      </ul>
+    </div>
+
 
         {/* FOLLOW US */}
         <div>

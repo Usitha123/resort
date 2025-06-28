@@ -14,15 +14,15 @@ const Navbar = () => {
       {/* Right Nav */}
       <ul className="hidden md:flex items-center space-x-5 text-sm">
         <li><Link to="/">HOME</Link></li>
-        <li><Link to="/about">ABOUT US</Link></li>
-        <li>FACILITIES</li>
-        <li>REVIEWS</li>
-        <li>CONTACT</li>
-        <li>
+        <li><Link to="/aboutus">ABOUT US</Link></li>
+        <li><Link to="/facilities">FACILITIES</Link></li>
+        <li><Link to="/reviews">REVIEWS</Link></li>
+        <li><Link to="/contact">CONTACT</Link></li>
+       {/*<li>
           <button className="bg-yellow-700 hover:bg-yellow-800 px-4 py-2 rounded text-white font-semibold">
             CHECK AVAILABILITY
           </button>
-        </li>
+        </li> */} 
       </ul>
     </nav>
   );

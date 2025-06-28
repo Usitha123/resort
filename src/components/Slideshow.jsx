@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 
 const images = [
-  "/images/slide1.jpg",
-  "/images/slide2.png",
-  "/images/slide3.png",
+  "/images/slideshows/slide1.jpg",
+  "/images/slideshows/slide2.png",
+  "/images/slideshows/slide3.png",
 ];
 
 const Slideshow = () => {
