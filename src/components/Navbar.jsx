@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-black text-white px-6 py-6 flex justify-between items-center">
+    <nav className="bg-black fixed top-0 text-white px-6 py-6 flex justify-between z-50 items-center shadow-md w-full">
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <img src="/logo.png" alt="Leopard Corridor Yala" className="h-10" />
+      { /* <img src="/logo.png" alt="Leopard Corridor Yala" className="h-10" /> */}
         <span className="text-xl font-cursive tracking-wide">Kings Lodge Habarana</span>
       </div>
 
