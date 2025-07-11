@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaWhatsapp,
 } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -17,14 +18,11 @@ const Footer = () => {
     <div>
        <h3 className="text-lg font-semibold mb-4">QUICK LINKS</h3>
       <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-300">
-        <li>Home</li>
-        <li>Contact</li>
-        <li>Reviews</li>
-        <li>Privacy Policy</li>
-        <li>Accommodation</li>
-        <li>Location</li>
-        <li>Terms & Conditions</li>
-        <li>Sitemap</li>
+        <li className=" hover:text-white"><Link to="/">Home</Link></li>
+        <li className=" hover:text-white"><Link to="/aboutus">About Us</Link></li>
+        <li className=" hover:text-white"><Link to="/facilities">Facilities</Link></li>
+        <li className=" hover:text-white"><Link to="/reviews">Reviews</Link></li>
+        <li className=" hover:text-white"><Link to="/contact">Contact</Link></li> 
       </ul>
     </div>
 
