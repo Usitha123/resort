@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const experiences = [
   {
     title: "RITIGALA",
-    image: "/public/images/experiences/ritigala.jpg",
+    image: "/images/experiences/ritigala.jpg",
   },
   {
     title: "KIRINDA BEACH",
