@@ -13,8 +13,8 @@ const Navbar = () => {
       
       {/* Logo */}
       <div className="flex items-center gap-2">
-        {/* <img src="/logo.png" alt="Kings Lodge Logo" className="h-10" /> */}
-        <span className="text-xl font-cursive tracking-wide">Kings Lodge Habarana</span>
+         <img src="../../public/logo.jpg" alt="Kings Lodge Logo" className="h-10" /> 
+        <span className="text-xl font-cursive tracking-wide"><Link to="/">Kings Lodge Habarana</Link></span>
       </div>
 
       {/* Desktop Menu */}

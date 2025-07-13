@@ -33,7 +33,7 @@ const Footer = () => {
           <ul className="space-y-3 text-gray-300 text-sm">
   <li>
     <a
-      href="https://www.facebook.com/yourpage" // Replace with your actual link
+      href="https://www.facebook.com/kingslodgehabarana?mibextid=wwXIfr&rdid=GSdaqsOhtJW2GgIJ&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1EuoGjaV9m%2F%3Fmibextid%3DwwXIfr#" // Replace with your actual link
       target="_blank"
       rel="noopener noreferrer"
       className="flex items-center gap-2 hover:text-white"
@@ -55,7 +55,7 @@ const Footer = () => {
   </li>
   <li>
     <a
-      href="https://www.tripadvisor.com/Profile/yourprofile" // Replace with your actual link
+      href="https://www.tripadvisor.com/VacationRentalReview-g665220-d17436272-Kings_Lodge_Habarana-Habarana_North_Central_Province.html" // Replace with your actual link
       target="_blank"
       rel="noopener noreferrer"
       className="flex items-center gap-2 hover:text-white"
@@ -93,7 +93,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope />
-              leopardcorridoryala@gmail.com
+              Kingslodgehabarana@gmail.com
             </li>
             <li className="flex items-center gap-2">
               <FaWhatsapp />
