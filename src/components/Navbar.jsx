@@ -4,7 +4,6 @@ import { IoMdMenu, IoMdClose } from 'react-icons/io';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const toggleMenu = () => setMenuOpen(prev => !prev);
 
   const navLinkClass = ({ isActive }) =>
@@ -14,11 +13,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full bg-black text-white px-6 py-6 flex justify-between items-center z-50 shadow-md">
+      <nav className="fixed top-0 left-0 w-full bg-black text-white px-6 py-6 flex justify-between items-center z-50 shadow-md overflow-x-hidden">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img src="/logo.jpg" alt="Kings Lodge Logo" className="h-10" />
-          <span className="text-xl font-cursive tracking-wide">
+        <div className="flex items-center gap-2 overflow-hidden">
+          <img src="/logo.jpg" alt="Kings Lodge Logo" className="h-10 w-auto max-w-[120px]" />
+          <span className="text-xl font-cursive tracking-wide whitespace-nowrap">
             <NavLink to="/" className="hover:text-yellow-300">Kings Lodge Habarana</NavLink>
           </span>
         </div>
@@ -44,7 +43,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-black text-white px-6 py-4 space-y-4 fixed top-20 w-full z-40 shadow-md transition-all duration-300">
+        <div className="md:hidden bg-black text-white px-6 py-4 space-y-4 fixed top-20 w-full max-w-screen overflow-x-hidden z-40 shadow-md transition-all duration-300">
           <ul className="flex flex-col gap-6 text-sm">
             <li><NavLink to="/" className={navLinkClass} onClick={toggleMenu}>HOME</NavLink></li>
             <li><NavLink to="/aboutus" className={navLinkClass} onClick={toggleMenu}>ABOUT US</NavLink></li>

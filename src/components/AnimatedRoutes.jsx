@@ -7,9 +7,13 @@ import Reviews from '../pages/Reviews';
 import Contact from '../pages/Contact';
 
 import {AnimatePresence} from 'framer-motion'
+import { useEffect } from 'react';
 
 export default function AnimatedRoutes() {
     const location = useLocation();
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [location.pathname]);
   return (
     <AnimatePresence>
     <Routes location={location} key={location.pathname}>

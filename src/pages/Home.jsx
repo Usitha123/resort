@@ -10,7 +10,7 @@ function App() {
  
   return (
     <motion.div
-      className="bg-black min-h-screen"
+      className="bg-black min-h-screen overflow-x-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
