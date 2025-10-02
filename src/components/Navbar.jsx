@@ -1,58 +1,126 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoMdMenu, IoMdClose } from 'react-icons/io';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  
   const toggleMenu = () => setMenuOpen(prev => !prev);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinkClass = ({ isActive }) =>
     isActive
-      ? 'text-yellow-400 underline underline-offset-4'
-      : 'hover:text-yellow-300 transition-colors';
+      ? 'text-yellow-400 font-semibold relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-yellow-400'
+      : 'hover:text-yellow-300 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-300 after:transition-all after:duration-300 hover:after:w-full';
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full bg-black text-white px-6 py-6 flex justify-between items-center z-50 shadow-md overflow-x-hidden">
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className={`fixed top-0 left-0 w-full text-white px-6 py-4 flex justify-between items-center z-50 overflow-x-hidden transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}
+      >
         {/* Logo */}
-        <div className="flex items-center gap-2 overflow-hidden">
-          <img src="/logo.jpg" alt="Kings Lodge Logo" className="h-10 w-auto max-w-[120px]" />
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="flex items-center gap-2 overflow-hidden"
+        >
+          <motion.img 
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            transition={{ duration: 0.3 }}
+            src="/logo.jpg" 
+            alt="Kings Lodge Logo" 
+            className="h-10 w-auto max-w-[120px] rounded-full shadow-lg" 
+          />
           <span className="text-xl font-cursive tracking-wide whitespace-nowrap">
-            <NavLink to="/" className="hover:text-yellow-300">Kings Lodge Habarana</NavLink>
+            <NavLink to="/" className="hover:text-yellow-300 transition-colors duration-300">
+              Kings Lodge Habarana
+            </NavLink>
           </span>
-        </div>
+        </motion.div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center space-x-5 text-sm">
-          <li><NavLink to="/" className={navLinkClass}>HOME</NavLink></li>
-          <li><NavLink to="/aboutus" className={navLinkClass}>ABOUT US</NavLink></li>
-          <li><NavLink to="/facilities" className={navLinkClass}>FACILITIES</NavLink></li>
-          <li><NavLink to="/reviews" className={navLinkClass}>REVIEWS</NavLink></li>
-          <li><NavLink to="/contact" className={navLinkClass}>CONTACT</NavLink></li>
-        </ul>
+        <motion.ul 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="hidden md:flex items-center space-x-8 text-sm font-medium"
+        >
+          {['HOME', 'ABOUT US', 'FACILITIES', 'REVIEWS', 'CONTACT'].map((item, index) => {
+            const path = item === 'HOME' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`;
+            return (
+              <motion.li
+                key={item}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + index * 0.1, duration: 0.3 }}
+                whileHover={{ y: -2 }}
+              >
+                <NavLink to={path} className={navLinkClass}>
+                  {item}
+                </NavLink>
+              </motion.li>
+            );
+          })}
+        </motion.ul>
 
         {/* Mobile Menu Toggle */}
-        <button
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={toggleMenu}
-          className="text-2xl md:hidden cursor-pointer"
+          className="text-3xl md:hidden cursor-pointer hover:text-yellow-300 transition-colors duration-300"
           aria-label="Toggle Menu"
         >
           {menuOpen ? <IoMdClose /> : <IoMdMenu />}
-        </button>
-      </nav>
+        </motion.button>
+      </motion.nav>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-black text-white px-6 py-4 space-y-4 fixed top-20 w-full max-w-screen overflow-x-hidden z-40 shadow-md transition-all duration-300">
-          <ul className="flex flex-col gap-6 text-sm">
-            <li><NavLink to="/" className={navLinkClass} onClick={toggleMenu}>HOME</NavLink></li>
-            <li><NavLink to="/aboutus" className={navLinkClass} onClick={toggleMenu}>ABOUT US</NavLink></li>
-            <li><NavLink to="/facilities" className={navLinkClass} onClick={toggleMenu}>FACILITIES</NavLink></li>
-            <li><NavLink to="/reviews" className={navLinkClass} onClick={toggleMenu}>REVIEWS</NavLink></li>
-            <li><NavLink to="/contact" className={navLinkClass} onClick={toggleMenu}>CONTACT</NavLink></li>
-          </ul>
-        </div>
-      )}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden bg-black/95 backdrop-blur-md text-white px-6 py-6 fixed top-[72px] w-full overflow-x-hidden z-40 shadow-2xl border-t border-yellow-400/20"
+          >
+            <ul className="flex flex-col gap-6 text-sm font-medium">
+              {['HOME', 'ABOUT US', 'FACILITIES', 'REVIEWS', 'CONTACT'].map((item, index) => {
+                const path = item === 'HOME' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`;
+                return (
+                  <motion.li
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                  >
+                    <NavLink 
+                      to={path} 
+                      className={navLinkClass} 
+                      onClick={toggleMenu}
+                    >
+                      {item}
+                    </NavLink>
+                  </motion.li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

@@ -1,44 +1,164 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Star, Wifi, Car, Coffee } from 'lucide-react';
 
 const rooms = [
   {
     name: 'DELUXE QUEEN ROOM',
-    image: '/images/queen.jpg', // Replace with correct path
+    image: '/images/queen.jpg',
+    price: 'From $120/night',
+    features: ['Free WiFi', 'Air Conditioning', 'Private Bathroom'],
+    rating: 4.8,
   },
   {
     name: 'DELUXE KING ROOM',
-    image: '/images/king.jpg', // Replace with correct path
+    image: '/images/king.jpg',
+    price: 'From $150/night',
+    features: ['Free WiFi', 'Air Conditioning', 'Private Balcony'],
+    rating: 4.9,
   },
   {
     name: 'TWO BEDROOM BUNGALOW',
-    image: '/images/bungalow.jpg', // Replace with correct path
+    image: '/images/bungalow.jpg',
+    price: 'From $200/night',
+    features: ['Free WiFi', 'Kitchenette', 'Garden View'],
+    rating: 4.7,
   },
 ];
 
 const Accommodation = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  };
+
   return (
-    <div className="bg-[#4B4725] py-16 px-4 text-white text-center">
-      <h2 className="text-3xl md:text-4xl font-light mb-12">Accommodation</h2>
+    <motion.div 
+      className="bg-gradient-to-br from-[#4B4725] to-[#3A3520] py-20 px-4 text-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-light mb-4 bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
+          Luxury Accommodation
+        </h2>
+        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          Experience comfort and elegance in our beautifully designed rooms and suites
+        </p>
+      </motion.div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {rooms.map((room, index) => (
-          <div key={index} className="relative group overflow-hidden">
-            <img
-              src={room.image}
-              alt={room.name}
-              className="w-full h-80 object-cover transform transition duration-300 group-hover:scale-105"
-            />
-            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
-              <p className="text-sm border-t border-white/50 pt-2">{room.name}</p>
+          <motion.div
+            key={index}
+            variants={cardVariants}
+            whileHover={{ y: -10 }}
+            className="relative group overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm border border-white/10"
+          >
+            <div className="relative overflow-hidden">
+              <motion.img
+                src={room.image}
+                alt={room.name}
+                className="w-full h-80 object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.6 }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              
+              {/* Rating Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                className="absolute top-4 right-4 bg-yellow-400 text-black px-3 py-1 rounded-full flex items-center gap-1 text-sm font-semibold"
+              >
+                <Star size={16} fill="currentColor" />
+                {room.rating}
+              </motion.div>
+
+              {/* Price Badge */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileHover={{ opacity: 1, x: 0 }}
+                className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium"
+              >
+                {room.price}
+              </motion.div>
             </div>
-          </div>
+
+            <div className="p-6">
+              <h3 className="text-xl font-semibold mb-3 text-yellow-400">{room.name}</h3>
+              
+              <div className="space-y-2 mb-4">
+                {room.features.map((feature, featureIndex) => (
+                  <motion.div
+                    key={featureIndex}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: featureIndex * 0.1 }}
+                    className="flex items-center gap-2 text-sm text-gray-300"
+                  >
+                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                    {feature}
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
+              >
+                Book Now
+                <ArrowRight size={18} />
+              </motion.button>
+            </div>
+          </motion.div>
         ))}
       </div>
 
-      <button className="mt-10 text-sm text-white/80 hover:text-white underline">
-        View All Rooms →
-      </button>
-    </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5 }}
+        className="text-center mt-12"
+      >
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="text-lg text-yellow-400 hover:text-yellow-300 font-medium flex items-center gap-2 mx-auto transition-colors duration-300"
+        >
+          View All Rooms
+          <ArrowRight size={20} />
+        </motion.button>
+      </motion.div>
+    </motion.div>
   );
 };
 
