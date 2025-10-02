@@ -91,7 +91,7 @@ export default function ExperienceCenter() {
 
   return (
     <motion.div 
-      className="bg-gradient-to-br from-[#4A4630] to-[#3A3520] text-white py-20"
+      className="bg-gradient-to-br from-black to-[#1a1a1a] text-white py-20"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -101,7 +101,7 @@ export default function ExperienceCenter() {
         variants={itemVariants}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-light mb-4 bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-light mb-4 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] bg-clip-text text-transparent">
           Center of Great Experience
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -131,7 +131,7 @@ export default function ExperienceCenter() {
                   transition={{ delay: 0.3 }}
                   className="max-w-2xl"
                 >
-                  <h3 className="text-3xl font-bold mb-2 text-yellow-400">
+                  <h3 className="text-3xl font-bold mb-2 text-[#D4AF37]">
                     {experiences[currentIndex].title}
                   </h3>
                   <p className="text-lg text-gray-300 mb-4">
@@ -148,7 +148,7 @@ export default function ExperienceCenter() {
                       {experiences[currentIndex].distance}
                     </div>
                     <div className="flex items-center gap-2">
-                      <Star size={16} fill="currentColor" className="text-yellow-400" />
+                      <Star size={16} fill="currentColor" className="text-[#D4AF37]" />
                       {experiences[currentIndex].rating}
                     </div>
                   </div>
@@ -186,7 +186,7 @@ export default function ExperienceCenter() {
                 onClick={() => goToSlide(index)}
                 className={`rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-yellow-400 w-8 h-3'
+                    ? 'bg-[#D4AF37] w-8 h-3'
                     : 'bg-white/60 hover:bg-white/80 w-3 h-3'
                 }`}
               />
@@ -208,7 +208,7 @@ export default function ExperienceCenter() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <h3 className="text-lg font-bold mb-1 text-yellow-400">
+              <h3 className="text-lg font-bold mb-1 text-[#D4AF37]">
                 {item.title}
               </h3>
               <p className="text-sm text-gray-300 mb-2">
@@ -225,7 +225,7 @@ export default function ExperienceCenter() {
                   {item.distance}
                 </div>
                 <div className="flex items-center gap-1">
-                  <Star size={12} fill="currentColor" className="text-yellow-400" />
+                  <Star size={12} fill="currentColor" className="text-[#D4AF37]" />
                   {item.rating}
                 </div>
               </div>

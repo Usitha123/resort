@@ -3,6 +3,7 @@
 /* Global Styles */
 html {
   scroll-behavior: smooth;
+  background-color: #000;
 }
 
 body {
@@ -10,6 +11,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  color: #fff;
 }
 
 /* Custom Scrollbar */

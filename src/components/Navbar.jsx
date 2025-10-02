@@ -17,24 +17,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinkClass = ({ isActive }) =>
-    isActive
-      ? 'text-yellow-400 font-semibold relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-yellow-400'
-      : 'hover:text-yellow-300 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-300 after:transition-all after:duration-300 hover:after:w-full';
+  const navLinkClass = ({ isActive }, itemName) => {
+    if (isActive) {
+      return 'text-[#D4AF37] font-bold relative px-3 py-2 rounded-lg bg-[#D4AF37]/10 border border-[#D4AF37]/30 shadow-lg shadow-[#D4AF37]/20 transition-all duration-500 ease-out transform scale-105';
+    }
+    
+    return 'hover:text-[#D4AF37] hover:bg-[#D4AF37]/5 hover:border-[#D4AF37]/20 transition-all duration-300 relative px-3 py-2 rounded-lg border border-transparent hover:shadow-md hover:shadow-[#D4AF37]/10 hover:scale-105 transform';
+  };
 
   return (
     <>
       <motion.nav 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 w-full text-white px-6 py-4 flex justify-between items-center z-50 overflow-x-hidden transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className={`fixed top-0 left-0 w-full text-white px-6 py-4 flex justify-between items-center z-50 overflow-x-hidden transition-all duration-500 ease-out ${scrolled ? 'bg-black/95 backdrop-blur-lg shadow-2xl shadow-[#D4AF37]/10' : 'bg-black/85 backdrop-blur-sm'}`}
       >
         {/* Logo */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex items-center gap-2 overflow-hidden"
         >
           <motion.img 
@@ -45,7 +48,7 @@ const Navbar = () => {
             className="h-10 w-auto max-w-[120px] rounded-full shadow-lg" 
           />
           <span className="text-xl font-cursive tracking-wide whitespace-nowrap">
-            <NavLink to="/" className="hover:text-yellow-300 transition-colors duration-300">
+            <NavLink to="/" className="hover:text-[#D4AF37] transition-colors duration-300">
               Kings Lodge Habarana
             </NavLink>
           </span>
@@ -55,7 +58,7 @@ const Navbar = () => {
         <motion.ul 
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="hidden md:flex items-center space-x-8 text-sm font-medium"
         >
           {['HOME', 'ABOUT US', 'FACILITIES', 'REVIEWS', 'CONTACT'].map((item, index) => {
@@ -65,10 +68,10 @@ const Navbar = () => {
                 key={item}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 + index * 0.1, duration: 0.3 }}
-                whileHover={{ y: -2 }}
+                transition={{ delay: 0.4 + index * 0.1, duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                whileHover={{ y: -3, scale: 1.02 }}
               >
-                <NavLink to={path} className={navLinkClass}>
+                <NavLink to={path} className={(props) => navLinkClass(props, item)}>
                   {item}
                 </NavLink>
               </motion.li>
@@ -80,7 +83,7 @@ const Navbar = () => {
         <motion.button
           whileTap={{ scale: 0.9 }}
           onClick={toggleMenu}
-          className="text-3xl md:hidden cursor-pointer hover:text-yellow-300 transition-colors duration-300"
+          className="text-3xl md:hidden cursor-pointer hover:text-[#D4AF37] transition-colors duration-300"
           aria-label="Toggle Menu"
         >
           {menuOpen ? <IoMdClose /> : <IoMdMenu />}
@@ -94,10 +97,10 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden bg-black/95 backdrop-blur-md text-white px-6 py-6 fixed top-[72px] w-full overflow-x-hidden z-40 shadow-2xl border-t border-yellow-400/20"
+            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="md:hidden bg-[#1a1a1a]/98 backdrop-blur-lg text-white px-6 py-6 fixed top-[72px] w-full overflow-x-hidden z-40 shadow-2xl border-t border-[#D4AF37]/30"
           >
-            <ul className="flex flex-col gap-6 text-sm font-medium">
+            <ul className="flex flex-col gap-4 text-sm font-medium">
               {['HOME', 'ABOUT US', 'FACILITIES', 'REVIEWS', 'CONTACT'].map((item, index) => {
                 const path = item === 'HOME' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`;
                 return (
@@ -105,11 +108,11 @@ const Navbar = () => {
                     key={item}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                    transition={{ delay: index * 0.1, duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
                     <NavLink 
                       to={path} 
-                      className={navLinkClass} 
+                      className={(props) => navLinkClass(props, item)} 
                       onClick={toggleMenu}
                     >
                       {item}

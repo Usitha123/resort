@@ -6,21 +6,18 @@ const rooms = [
   {
     name: 'DELUXE QUEEN ROOM',
     image: '/images/queen.jpg',
-    price: 'From $120/night',
     features: ['Free WiFi', 'Air Conditioning', 'Private Bathroom'],
     rating: 4.8,
   },
   {
     name: 'DELUXE KING ROOM',
     image: '/images/king.jpg',
-    price: 'From $150/night',
     features: ['Free WiFi', 'Air Conditioning', 'Private Balcony'],
     rating: 4.9,
   },
   {
     name: 'TWO BEDROOM BUNGALOW',
     image: '/images/bungalow.jpg',
-    price: 'From $200/night',
     features: ['Free WiFi', 'Kitchenette', 'Garden View'],
     rating: 4.7,
   },
@@ -52,7 +49,7 @@ const Accommodation = () => {
 
   return (
     <motion.div 
-      className="bg-gradient-to-br from-[#4B4725] to-[#3A3520] py-20 px-4 text-white"
+      className="bg-gradient-to-br from-black to-[#1a1a1a] py-20 px-4 text-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -65,7 +62,7 @@ const Accommodation = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-light mb-4 bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-light mb-4 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] bg-clip-text text-transparent">
           Luxury Accommodation
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -79,7 +76,7 @@ const Accommodation = () => {
             key={index}
             variants={cardVariants}
             whileHover={{ y: -10 }}
-            className="relative group overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm border border-white/10"
+            className="relative group overflow-hidden rounded-2xl shadow-2xl bg-[#1a1a1a]/80 backdrop-blur-sm border border-gray-800"
           >
             <div className="relative overflow-hidden">
               <motion.img
@@ -95,24 +92,16 @@ const Accommodation = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="absolute top-4 right-4 bg-yellow-400 text-black px-3 py-1 rounded-full flex items-center gap-1 text-sm font-semibold"
+                className="absolute top-4 right-4 bg-[#D4AF37] text-black px-3 py-1 rounded-full flex items-center gap-1 text-sm font-semibold"
               >
                 <Star size={16} fill="currentColor" />
                 {room.rating}
               </motion.div>
 
-              {/* Price Badge */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileHover={{ opacity: 1, x: 0 }}
-                className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium"
-              >
-                {room.price}
-              </motion.div>
             </div>
 
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3 text-yellow-400">{room.name}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[#D4AF37]">{room.name}</h3>
               
               <div className="space-y-2 mb-4">
                 {room.features.map((feature, featureIndex) => (
@@ -123,7 +112,7 @@ const Accommodation = () => {
                     transition={{ delay: featureIndex * 0.1 }}
                     className="flex items-center gap-2 text-sm text-gray-300"
                   >
-                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full" />
                     {feature}
                   </motion.div>
                 ))}
@@ -132,7 +121,7 @@ const Accommodation = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-black font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] text-black font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
               >
                 Book Now
                 <ArrowRight size={18} />
@@ -152,7 +141,7 @@ const Accommodation = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="text-lg text-yellow-400 hover:text-yellow-300 font-medium flex items-center gap-2 mx-auto transition-colors duration-300"
+          className="text-lg text-[#D4AF37] hover:text-[#D4AF37]/80 font-medium flex items-center gap-2 mx-auto transition-colors duration-300"
         >
           View All Rooms
           <ArrowRight size={20} />

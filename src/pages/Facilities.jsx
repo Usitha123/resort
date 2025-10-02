@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Accommodation from '../components/Accommodation';
 import { motion } from 'framer-motion';
 
 function Facilities() {
@@ -145,6 +146,9 @@ function Facilities() {
             </motion.p>
           </div>
         </section>
+
+        {/* Luxury Accommodation */}
+        <Accommodation />
 
         {/* Quick Amenities Overview */}
         <section className="py-16 px-4 bg-gradient-to-b from-black to-[#1a1a1a]">
