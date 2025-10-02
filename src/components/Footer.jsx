@@ -46,7 +46,7 @@ const Footer = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         {/* QUICK LINKS */}
         <motion.div variants={itemVariants}>
-          <h3 className="text-lg font-semibold mb-4 text-[#D4AF37]">QUICK LINKS</h3>
+          <h3 className="text-lg text-subheading mb-4 text-[#D4AF37]">QUICK LINKS</h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <motion.li 
               whileHover={{ x: 5 }}
@@ -84,7 +84,7 @@ const Footer = () => {
 
         {/* FOLLOW US */}
         <motion.div variants={itemVariants}>
-          <h3 className="text-lg font-semibold mb-4 text-[#D4AF37]">FOLLOW US</h3>
+          <h3 className="text-lg text-subheading mb-4 text-[#D4AF37]">FOLLOW US</h3>
           <ul className="space-y-3 text-gray-300 text-sm">
             <motion.li
               whileHover={{ x: 5 }}
@@ -148,7 +148,7 @@ const Footer = () => {
 
         {/* ADDRESS */}
         <motion.div variants={itemVariants}>
-          <h3 className="text-lg font-semibold mb-4 text-[#D4AF37]">ADDRESS</h3>
+          <h3 className="text-lg text-subheading mb-4 text-[#D4AF37]">ADDRESS</h3>
           <motion.div 
             whileHover={{ x: 5 }}
             className="flex items-start gap-3 text-sm text-gray-300 transition-colors duration-300"
@@ -171,7 +171,7 @@ const Footer = () => {
 
         {/* CONTACT US */}
         <motion.div variants={itemVariants}>
-          <h3 className="text-lg font-semibold mb-4 text-[#D4AF37]">CONTACT US</h3>
+          <h3 className="text-lg text-subheading mb-4 text-[#D4AF37]">CONTACT US</h3>
           <ul className="space-y-3 text-sm text-gray-300">
             <motion.li 
               whileHover={{ x: 5 }}

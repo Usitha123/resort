@@ -101,7 +101,7 @@ export default function ExperienceCenter() {
         variants={itemVariants}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-light mb-4 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl text-hero mb-4 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] bg-clip-text text-transparent">
           Center of Great Experience
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -131,7 +131,7 @@ export default function ExperienceCenter() {
                   transition={{ delay: 0.3 }}
                   className="max-w-2xl"
                 >
-                  <h3 className="text-3xl font-bold mb-2 text-[#D4AF37]">
+                  <h3 className="text-3xl text-heading mb-2 text-[#D4AF37]">
                     {experiences[currentIndex].title}
                   </h3>
                   <p className="text-lg text-gray-300 mb-4">
@@ -208,7 +208,7 @@ export default function ExperienceCenter() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <h3 className="text-lg font-bold mb-1 text-[#D4AF37]">
+              <h3 className="text-lg text-heading mb-1 text-[#D4AF37]">
                 {item.title}
               </h3>
               <p className="text-sm text-gray-300 mb-2">

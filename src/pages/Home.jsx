@@ -57,7 +57,7 @@ function App() {
       scale: 0.95,
     }),
   };
-
+ 
   return (
     <motion.div
       className="bg-black min-h-screen overflow-x-hidden"
@@ -143,7 +143,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl text-hero text-white mb-6">
                 Welcome to
                 <span className="block bg-gradient-to-r from-[#D4AF37] to-[#B8941F] bg-clip-text text-transparent">
                   Kings Lodge
@@ -153,7 +153,7 @@ function App() {
                 </span>
               </h1>
               <motion.p 
-                className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed"
+                className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 "
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -170,14 +170,14 @@ function App() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#D4AF37] text-black font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#B8941F] transition-colors duration-300"
+                  className="bg-[#D4AF37] text-black text-body-bold px-8 py-4 rounded-lg text-lg hover:bg-[#B8941F] transition-colors duration-300"
                 >
                   Explore Our Resort
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-[#D4AF37] text-[#D4AF37] font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#D4AF37] hover:text-black transition-colors duration-300"
+                  className="border-2 border-[#D4AF37] text-[#D4AF37] text-body-bold px-8 py-4 rounded-lg text-lg hover:bg-[#D4AF37] hover:text-black transition-colors duration-300"
                 >
                   Book Your Stay
                 </motion.button>
@@ -196,7 +196,7 @@ function App() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl text-heading text-white mb-6">
                 Why Choose Kings Lodge?
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -232,8 +232,8 @@ function App() {
                   whileHover={{ y: -5 }}
                 >
                   <div className="text-5xl mb-4">{feature.icon}</div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">{feature.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-2xl text-body-bold text-white mb-4">{feature.title}</h3>
+                  <p className="text-gray-300 ">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -252,7 +252,7 @@ function App() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl text-heading text-white mb-6">
                 What Our Guests Say
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -298,9 +298,9 @@ function App() {
                       <span key={i} className="text-[#D4AF37] text-lg">⭐</span>
                     ))}
                   </div>
-                  <p className="text-gray-300 mb-4 leading-relaxed italic">"{testimonial.review}"</p>
+                  <p className="text-gray-300 mb-4  italic">"{testimonial.review}"</p>
                   <div className="border-t border-gray-700 pt-4">
-                    <p className="text-white font-semibold">{testimonial.name}</p>
+                    <p className="text-white text-body-bold">{testimonial.name}</p>
                     <p className="text-gray-400 text-sm">{testimonial.location} • {testimonial.stay}</p>
                   </div>
                 </motion.div>
@@ -317,7 +317,7 @@ function App() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border border-[#D4AF37] text-[#D4AF37] font-semibold px-8 py-3 rounded-lg hover:bg-[#D4AF37] hover:text-black transition-colors duration-300"
+                className="border border-[#D4AF37] text-[#D4AF37] text-body-bold px-8 py-3 rounded-lg hover:bg-[#D4AF37] hover:text-black transition-colors duration-300"
               >
                 Read More Reviews
               </motion.button>
@@ -334,7 +334,7 @@ function App() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl text-heading text-white mb-6">
                 Ready for Your Sri Lankan Adventure?
               </h2>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -345,14 +345,14 @@ function App() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#D4AF37] text-black font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#B8941F] transition-colors duration-300"
+                  className="bg-[#D4AF37] text-black text-body-bold px-8 py-4 rounded-lg text-lg hover:bg-[#B8941F] transition-colors duration-300"
                 >
                   Book Now
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-[#D4AF37] text-[#D4AF37] font-semibold px-8 py-4 rounded-lg text-lg hover:bg-[#D4AF37] hover:text-black transition-colors duration-300"
+                  className="border-2 border-[#D4AF37] text-[#D4AF37] text-body-bold px-8 py-4 rounded-lg text-lg hover:bg-[#D4AF37] hover:text-black transition-colors duration-300"
                 >
                   Contact Us
                 </motion.button>
@@ -385,7 +385,7 @@ function App() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl text-heading text-white mb-6">
                 Discover Our Prime Location
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -395,17 +395,17 @@ function App() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
                 <div className="text-center">
                   <div className="text-3xl mb-2">🏛️</div>
-                  <h3 className="text-lg font-semibold text-[#D4AF37] mb-1">Ancient Temples</h3>
+                  <h3 className="text-lg text-body-bold text-[#D4AF37] mb-1">Ancient Temples</h3>
                   <p className="text-gray-400 text-sm">15-30 minutes away</p>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl mb-2">🦁</div>
-                  <h3 className="text-lg font-semibold text-[#D4AF37] mb-1">Wildlife Parks</h3>
+                  <h3 className="text-lg text-body-bold text-[#D4AF37] mb-1">Wildlife Parks</h3>
                   <p className="text-gray-400 text-sm">45-60 minutes away</p>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl mb-2">🏖️</div>
-                  <h3 className="text-lg font-semibold text-[#D4AF37] mb-1">Pristine Beaches</h3>
+                  <h3 className="text-lg text-body-bold text-[#D4AF37] mb-1">Pristine Beaches</h3>
                   <p className="text-gray-400 text-sm">2-3 hours away</p>
                 </div>
               </div>

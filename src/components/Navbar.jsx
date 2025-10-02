@@ -47,7 +47,7 @@ const Navbar = () => {
             alt="Kings Lodge Logo" 
             className="h-10 w-auto max-w-[120px] rounded-full shadow-lg" 
           />
-          <span className="text-xl font-cursive tracking-wide whitespace-nowrap">
+          <span className="text-xl font-display tracking-wide whitespace-nowrap">
             <NavLink to="/" className="hover:text-[#D4AF37] transition-colors duration-300">
               Kings Lodge Habarana
             </NavLink>

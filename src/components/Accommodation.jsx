@@ -62,7 +62,7 @@ const Accommodation = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-light mb-4 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl text-hero mb-4 bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] bg-clip-text text-transparent">
           Luxury Accommodation
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -92,7 +92,7 @@ const Accommodation = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="absolute top-4 right-4 bg-[#D4AF37] text-black px-3 py-1 rounded-full flex items-center gap-1 text-sm font-semibold"
+                className="absolute top-4 right-4 bg-[#D4AF37] text-black px-3 py-1 rounded-full flex items-center gap-1 text-sm text-subheading"
               >
                 <Star size={16} fill="currentColor" />
                 {room.rating}
@@ -101,7 +101,7 @@ const Accommodation = () => {
             </div>
 
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3 text-[#D4AF37]">{room.name}</h3>
+              <h3 className="text-xl text-subheading mb-3 text-[#D4AF37]">{room.name}</h3>
               
               <div className="space-y-2 mb-4">
                 {room.features.map((feature, featureIndex) => (
@@ -121,7 +121,7 @@ const Accommodation = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] text-black font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] text-black text-subheading py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
               >
                 Book Now
                 <ArrowRight size={18} />
