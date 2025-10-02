@@ -60,7 +60,7 @@ export default function AnimatedRoutes() {
             <Home />
           </PageWrapper>
         } />
-        <Route path="/aboutus" element={
+        <Route path="/about-us" element={
           <PageWrapper>
             <About />
           </PageWrapper>
